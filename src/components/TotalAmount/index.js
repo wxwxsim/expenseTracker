@@ -10,7 +10,7 @@ const TotalAmount = (props)=>{
 	const {amountStyle} = props;
 	const expenseModel = useSelector(selectAllExpense) || {};
 	const getdataArr = expenseModel.expensedata || []
-  	const totalAmt = getdataArr.map(v => v.amount).reduce((acc, item) => (acc += item), 0).toFixed(2);
+  	const totalAmt = ((getdataArr.map(v => v.amount)||[]).reduce((acc, item) => (acc += item), 0)||0).toFixed(2);
 
 	return (
 		<div style={amountStyle}>

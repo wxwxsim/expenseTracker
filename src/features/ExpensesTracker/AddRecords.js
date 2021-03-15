@@ -12,12 +12,15 @@ const AddRecords = ()=>{
 
   const submit = e => {
     e.preventDefault();
+    if(+amount===0 || !amount) return
     const newdata = {
       id: Math.floor(Math.random() * 100000000),
       desc,
       amount: +amount
     }
     dispatch(addnew(newdata))
+    setDesc('')
+    setAmount(null)
   }
 
   return (
@@ -34,7 +37,7 @@ const AddRecords = ()=>{
         </div>
       </form>
 
-      <div style={{textAlign:'center'}}><Button style={{width:'100%'}} type='primary' size='large' onClick={submit}>Add</Button></div>
+      <div style={{textAlign:'center'}}><Button disabled={+amount===0?true:false} style={{width:'100%'}} type='primary' size='large' onClick={submit}>Add</Button></div>
     </>
   )
 }

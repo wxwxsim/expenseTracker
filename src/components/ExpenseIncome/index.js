@@ -6,10 +6,10 @@ import { selectAllExpense} from '../../model/expenseSlice';
 const ExpenseIncome = (props)=>{
 	const expenseModel = useSelector(selectAllExpense) || {};
 	const getdataArr = expenseModel.expensedata || []
-    const getamounts = getdataArr.map(v => v.amount);
-    const getIncome = getamounts
+    const getamounts = getdataArr.map(v => v.amount) || [];
+    const getIncome = ((getamounts||[])
         .filter(item => item > 0)
-        .reduce((acc, item) => (acc += item), 0)
+        .reduce((acc, item) => (acc += item), 0)||0)
         .toFixed(2);
     
     const getExpense = (getamounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) * -1).toFixed(2);

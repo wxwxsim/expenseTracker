@@ -20,7 +20,6 @@ beforeAll(() => {
 
 
 test('Expense tracking app', () => {
-  
   const { getByText } = render(
     <Provider store={store}>
       <App />
@@ -28,4 +27,6 @@ test('Expense tracking app', () => {
   );
 
   expect(getByText(/Expense Tracker App/i)).toBeInTheDocument();
+  expect(getByText('Add new expense')).toBeInTheDocument();
+  expect(getByText('All history')).toBeInTheDocument();
 });
