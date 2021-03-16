@@ -7,7 +7,7 @@ An app for tracking expense using React.
 First you'll have to clone the App:
 
 ```bash
-git clone https://github.com/simwx123/expenseTracker.git
+git clone https://github.com/wxwxsim/expenseTracker.git
 ```
 
 Then, inside the project's folder, install it's dependencies.
